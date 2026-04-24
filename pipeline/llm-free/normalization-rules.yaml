@@ -1,0 +1,116 @@
+# v0.5 → v1.0 정규화 규칙 (Opus 판단, 2026-04-22)
+# 적용: normalize-apply.py 실행 → lexicon-nl-grammar.v1.yaml 생성
+
+# === (1) 카테고리 교정 ===
+# modality 에 잘못 분류된 connective 성질 항목 → connectives 로 이동
+move_endings_to_connectives:
+  - text: "-이므로"
+    new_da_field: because
+  - text: "-할 때"
+    new_da_field: when
+  - text: "-으로 대체"
+    new_da_field: then
+  - text: "-지 않으므로"
+    new_da_field: because
+
+# connective 에 잘못 들어온 modality 마커 → 제거 (endings 의 기존 must-not 과 중복)
+remove_connectives:
+  - "⛔"  # modality marker 본질
+
+# === (2) Modality 재매핑 (endings in-place) ===
+remap_modality:
+  "-만": must          # restriction → 제약조건 must
+  "-도록": should      # 목표 지향 권장
+  "-할 때만": must     # conditional-must → must
+
+# === (3) DA field 재매핑 (connectives in-place) ===
+remap_da_field:
+  "**모두** 충족": if     # and-condition → composite if (narrative 주석 병행)
+
+# connective → endings 이동 (modality marker 성질)
+move_connectives_to_endings:
+  - text: "권장"
+    new_modality: should
+  - text: "포함 권장"
+    new_modality: should
+
+# === (4) Ending 병합 (canonical + aliases, occurrences/file_coverage 합산) ===
+merge_endings:
+  "-해야 한다":
+    modality: must
+    aliases: ["-해야", "-해야 함", "-해야 합니다"]
+  "-금지":
+    modality: must-not
+    aliases: ["-금지한다"]
+  "-필수":
+    modality: must
+    aliases: ["-필수이다"]
+  "-가능":
+    modality: may
+    aliases: ["-가능하다"]
+  "-허용":
+    modality: may
+    aliases: ["-허용한다"]
+  "반드시":
+    modality: must
+    aliases: ["반드시 ~", "반드시 ~경유"]
+  "-(이)므로":
+    modality: neutral
+    aliases: []  # 자체 보존 — semantic connective 이지만 endings 위치 유지 (기존 분석 문서 통일)
+
+# === (5) Connective 병합 ===
+merge_connectives:
+  "~이면":
+    da_field: if
+    aliases: ["~이면 →", "~이면 → 조치"]
+  "반드시 {X}한다":
+    da_field: then
+    aliases: ["반드시", "반드시 ~", "반드시 ~ 경유", "반드시 {X}를 먼저 Read 한 뒤", "반드시 {X}와 {Y} 모두"]
+  "만약 {X}이면":
+    da_field: if
+    aliases: ["만약 ~", "만약"]
+  "따라서 ~":
+    da_field: because
+    aliases: ["따라"]
+  "왜냐하면":
+    da_field: because
+    aliases: ["왜냐하면 ~"]
+  "단, ~":
+    da_field: counter-example
+    aliases: ["단,"]
+  # 주의: "없으면" (if) vs "없으므로" (because) 는 semantic 다름 — 병합 X
+
+# === (6) 저빈도 잡음 제거 정책 ===
+# occurrences == 1 AND file_coverage == 1 = 우발적 출현 가능성 → 제거
+# 단 has_da_sections=true 파일 (rules/*.md) 에서만 나온 항목은 보존
+remove_low_frequency:
+  enabled: true
+  criteria: "occurrences<=1 AND file_coverage<=1"
+  preserve_from_rules: true  # rules/*.md 에서 나온 항목은 저빈도여도 보존
+
+# === (7) Tier 분류 전략 ===
+tier_strategy:
+  type: coverage-ratio
+  thresholds:
+    tier_1: 70    # % cumulative occurrences
+    tier_2: 90
+    # tier_3: 나머지
+  rebalance:
+    # connective 의 롱테일 대응 — DA field 별 separate budget
+    # 각 da_field 최소 top-3 보장 (tier_1 에 들어가지 않더라도)
+    per_da_field_min: 3
+
+# === (8) Lexicon 확장 정책 (incident-driven only) ===
+# ⚡ 핵심: batch 재추출 불필요. write-time constraint 가 작동하면 agent 는 이미 lexicon 내 문법만 사용.
+# 미매칭 발견 시 linter 가 catch → agent 교정 (기본) 또는 lexicon 추가 (예외, 사용자 승인).
+# 즉 외부 md 코퍼스 주기적 재스캔 불필요 — v1.0 이 부트스트랩 최종판.
+extension_policy:
+  mode: incident-driven-only
+  trigger: "linter 가 unmatched 문장 감지 시"
+  paths:
+    default: "agent 가 표준 문법으로 교정 (md 수정)"
+    exception: "lexicon 항목 추가 (사용자 승인 게이트)"
+  recompute:
+    on: "lexicon 편집"
+    script: tierize.py
+    note: "batch 재스캔 없음. lexicon 편집 시만 tierize 재실행 → tier 재분류"

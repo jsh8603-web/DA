@@ -1,0 +1,146 @@
+---
+id: DA-20260422-harness-wf-fail-escalation-flow
+kind: chain
+priority: high
+modality: must
+severity: ux-failure (에스컬레이션 체인 건너뛰기 = 과도한 직접 수정 또는 불필요한 인간 개입)
+trigger:
+  keywords:
+    - Worker FAIL
+    - Verifier FAIL
+    - Healer 실패
+    - 에스컬레이션
+    - retry-count
+    - SR T3
+    - DEADLOCK
+    - improvement-registry
+when: Phase 루프 ⑦ 내에서 Worker Sub-obj 실행 후 Verifier 가 FAIL 판정한 순간.
+because: 에스컬레이션 체인 건너뛰기는 두 방향 모두 비용을 유발한다 — 1회 FAIL 에서 Supervisor 가 즉시 수정하면 Worker 학습 기회 상실 + Healer 루프 3회 기회 낭비, 반대로 DEADLOCK 까지 Supervisor 개입 없이 방치하면 사용자가 불필요하게 방해받는다. 4단계 순차 승격 (Healer 루프 → Supervisor 중재 → SR T3 → 직접 수정 → 인간) 과 retry-count 3 임계값은 자율성·개입 비용의 균형점이다.
+sources:
+  - canonical: ~/.claude/docs/domain/harness-wf-chains.md §harness-wf-fail-escalation-flow
+    section-sha256: PLACEHOLDER_RUN_MIGRATE
+    last-verified: '2026-04-22'
+    sequence-sha256: 1db4ec4e23d4b6dc158ea3930aa8a3d212a88caff1946b35dad7d05771125bca
+sequence:
+  - step: 1
+    action: Verifier 가 즉시 검증 → PASS 판정
+    stage: Phase 루프 ⑦
+    trigger: Worker 구현 완료 + Verifier 통보 시그널
+    actor: Verifier
+    da-ref: DA-20260422-harness-wf-verifier-trigger-events
+  - step: 2
+    action: 다음 Sub-obj 로 진행 — chain 탈출
+    trigger: Verifier PASS 수신
+    condition: Sub-obj PASS
+    actor: Worker
+  - step: 3
+    action: Healer 호출 + retry-count 증가
+    trigger: Verifier FAIL (첫 번째)
+    actor: System
+    da-ref: DA-20260422-harness-wf-healer-activation-triggers
+  - step: 4
+    action: Healer 가 수정 + 재검증 요청
+    condition: retry-count < 3
+    actor: Healer
+    da-ref: DA-20260422-harness-wf-healer-fix-complete-format
+    fields-written:
+      - '- ".harness/execution-log.md:💡'
+  - step: 5
+    action: step 3 으로 루프 — Healer 재호출
+    trigger: Verifier FAIL (2번째 이상)
+    condition: retry-count < 3
+    actor: System
+  - step: 6
+    action: Supervisor 중재 진입 (escalation-chain ②)
+    condition: retry-count >= 3
+    actor: Supervisor
+    da-ref: DA-20260422-harness-wf-supervisor-escalation-chain
+  - step: 7
+    action: SR T3 Creative Window 호출 — 창의 대안 요청
+    condition: Supervisor 중재 실패
+    actor: Supervisor
+    da-ref: DA-20260422-harness-wf-sr-event-triggers-t1-t4
+  - step: 8
+    action: Supervisor 직접 수정 (escalation-chain ③)
+    condition: SR 대안 후에도 실패
+    actor: Supervisor
+  - step: 9
+    action: '[DEADLOCK] 인간 에스컬레이션 + improvement-registry 기록 (escalation-chain ④)'
+    condition: 직접 수정 실패
+    actor: Supervisor
+    fields-written:
+      - '- ".harness/improvement-registry.md:new-row'
+entry-conditions: '"Worker 가 Sub-obj 구현 완료 + Verifier 에 시그널 전송한 직후"'
+exit-conditions: '"PASS (step 2 탈출) 또는 DEADLOCK (step 9 인간 에스컬레이션)"'
+input-role: Verifier
+output-role: Supervisor
+output-condition: 직접 수정 실패
+actors:
+  - Verifier
+  - Worker
+  - System
+  - Healer
+  - Supervisor
+numeric-bounds:
+  - key: worker-retry-limit
+    value: 3
+    description: step 6 Supervisor 중재 진입 임계값
+    unit: 회
+  - key: sr-mode-for-healer-fail
+    value: T3 Creative Window
+    description: Mode A/C/G 아님
+  - key: escalation-stages
+    value: 4
+    description: ② Supervisor / ③ 직접 수정 / ④ 인간 / 그 위에 ① Healer 루프
+    unit: 개
+counter-example: 첫 FAIL 에서 명백한 타이포 / 컴파일 에러 감지 시 Supervisor 가 step 3-5 건너뛰고 즉시 step 8 직접 수정 허용 (사용자 명시 승인 시). 사용자가 "긴급" 이라 표시한 경우 step 9 인간 에스컬레이션 으로 즉시 진입 가능. 하지만 이는 **예외** 이며 기본 경로는 순차 승격이다.
+anti-pattern: 1회 FAIL 후 즉시 Supervisor 직접 수정 → Worker 학습 기회 상실 + Healer 루프 3회 기회 낭비. Healer 가 retry-count 체크 없이 무한 루프 → 진전 없이 사이클 누적. SR 트리거 생략 후 바로 인간 에스컬레이션 → 창의 개입 타이밍 상실 + 사용자 피로 누적.
+depends-on: []
+applies-with:
+  - DA-20260422-harness-wf-supervisor-escalation-chain
+meta-of: []
+example-queries:
+  - Worker 가 3 번 실패하면 뭐 해
+  - Healer 도 실패했을 때 SR 언제 호출해
+  - DEADLOCK 이 뭐야 어떻게 보고해
+  - retry-count 왜 3 회야
+  - SR T3 Creative Window 언제 써
+  - 에스컬레이션 단계 순서
+version: 3
+status: active
+effective-from: '2026-04-22T00:00:00.000Z'
+last-verified: '2026-04-22T00:00:00.000Z'
+utility: 0.7
+hit-count: 0
+auto-keywords:
+  - worker
+  - fail
+  - escalation
+  - harness
+  - workflow
+  - phase
+  - loop
+  - verifier
+  - judgment
+  - healer
+  - supervisor
+  - mediation
+  - sr
+  - creative
+  - window
+  - threshold
+  - autonomous
+  - intervention
+  - cost
+  - balance
+---
+
+# DA-20260422-harness-wf-fail-escalation-flow
+
+## Signal-to-Action
+
+Worker 구현 → Verifier FAIL → Healer 수정 → 재검증 FAIL 순환에서 `retry-count == 3` 도달 시 Supervisor 중재 (step 6), Supervisor 중재 실패 시 SR T3 Creative Window 호출 (step 7), SR 대안 후에도 실패 시 Supervisor 직접 수정 (step 8), 최종 실패 시 `[DEADLOCK]` 인간 에스컬레이션 + `improvement-registry.md` 새 행 기록 (step 9). 이 순서를 건너뛰는 직접 수정·즉시 인간 호출은 명시적 예외 (타이포 / 사용자 긴급) 가 아닌 한 금지.
+
+## 적용 사례 (retrospective 연계)
+
+- (md-rewrite 변환 시점 — retrospective 누적 예정)

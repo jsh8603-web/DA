@@ -1,0 +1,62 @@
+---
+id: DA-20260422-model-routing-switch-cooldown
+kind: constraint
+priority: medium
+trigger: {}
+when: 세션 내 opus↔sonnet 전환을 시도할 때
+if: 모델 전환 허용 여부를 판단하는 경우
+then: '전환은 두 조건을 **모두** 충족해야 허용한다. **A (핑퐁 방지)**: 마지막 전환 이후 ≥20k 토큰 작업 누적. **B (고비용 방지)**: 현재 세션 누적 < "현재 모델 warn − 30k" (sonnet/haiku 세션: 누적 <100k / opus 세션: 누적 <180k). B limit 초과 시 대체 경로: (a) `/compact` 선행 → 누적 reset 후 전환, (b) 현재 모델 유지 + `Agent({ model: "opus" })` 서브 (독립 context), (c) 다음 세션으로 handshake (§F). `haiku-task.sh` round-trip 은 단기·기계적 위임이므로 본 규칙 제외.'
+because: 'cache_write = 누적 input × 1.25x → warn 근처 전환 = 수$ 폭탄 (opus 200k → $3.75). `model-switch-and-send.sh` 가 jsonl 기반으로 자가 강제 (우회 플래그 없음). ⛔ `/model` 직접 입력 금지 — stdin 큐잉 위험. progress.md 는 단일 모델 세션: 여러 모델 step 섞기 금지. 다른 모델 필요 시 `Agent({ model: "opus"|"sonnet", ... })` 서브 경유.'
+sources:
+  - canonical: ~/.claude/docs/operations/model-routing.md §model-routing-switch-cooldown
+    section-sha256: PLACEHOLDER_RUN_MIGRATE
+    last-verified: '2026-04-22'
+depends-on: []
+applies-with:
+  - DA-20260422-progress-model-switch
+  - DA-20260422-model-switch-helper-required
+  - DA-20260422-lightweight-wf-model-escalation
+meta-of: []
+example-queries:
+  - 모델 전환 쿨다운 조건이 뭐야
+  - B limit 초과 상태에서 opus 판단 필요하면
+  - sonnet 세션 전환 가능 누적 상한
+  - opus 세션 전환 허용 기준
+version: 3
+status: active
+effective-from: '2026-04-22T00:00:00.000Z'
+last-verified: '2026-04-22T00:00:00.000Z'
+utility: 0.7
+hit-count: 0
+auto-keywords:
+  - model
+  - switching
+  - cooldown
+  - opus
+  - sonnet
+  - haiku
+  - token
+  - accumulation
+  - pingpong
+  - prevention
+  - cost
+  - limit
+  - warn
+  - threshold
+  - session
+  - conditions
+  - routing
+  - switch
+  - decision
+  - compact
+---
+
+# DA-20260422-model-routing-switch-cooldown
+
+## Signal-to-Action
+
+opus↔sonnet 전환은 A(≥20k 누적) AND B(sonnet<100k / opus<180k) 모두 충족 시만 허용한다. `model-switch-and-send.sh` 가 자가 강제. B limit 초과 시 (a)/compact (b)서브에이전트 (c)handshake 중 선택. `/model` 직접 입력 절대 금지.
+
+## 적용 사례 (retrospective 연계)
+
+- (md-rewrite 변환 시점 — retrospective 누적 예정)

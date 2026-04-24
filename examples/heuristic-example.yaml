@@ -1,0 +1,61 @@
+---
+id: DA-20260422-code-quality-simplify-trigger
+kind: heuristic
+priority: low
+modality: should
+severity: quality-degrade (대규모 변경 후 정리 누락 = 기술 부채 누적)
+trigger:
+  keywords:
+    - simplify
+    - 정리
+    - 리팩토링
+    - 기능 완료 후
+    - 5파일
+when: 기능 구현 완료 후 변경 파일 수가 5 개 이상인 시점.
+if: 변경된 코드가 반복 패턴·미사용 import·불필요 중복을 포함할 가능성이 있는 경우.
+then: '`simplify` 트리거를 실행한다 (3 개 서브에이전트 병렬 — 재사용성 / 품질 / 효율성 관점).'
+because: 대규모 변경 직후 정리 단계를 거치지 않으면 반복 코드·dead import·과잉 추상화가 누적된다.
+sources:
+  - canonical: ~/.claude/docs/operations/code-quality.md §code-quality-simplify-trigger
+    section-sha256: PLACEHOLDER_RUN_MIGRATE
+    last-verified: '2026-04-22'
+depends-on: []
+applies-with: []
+meta-of: []
+example-queries:
+  - 변경 파일 여러 개 됐는데 simplify 돌려야 해
+  - 기능 구현 끝났어 정리는 언제 해
+  - simplify 트리거 조건
+version: 3
+status: active
+effective-from: '2026-04-22T00:00:00.000Z'
+last-verified: '2026-04-22T00:00:00.000Z'
+utility: 0.7
+hit-count: 0
+auto-keywords:
+  - code
+  - quality
+  - trigger
+  - changed
+  - files
+  - refactoring
+  - dead
+  - import
+  - cleanup
+  - duplication
+  - pattern
+  - repetition
+  - reusability
+  - efficiency
+  - abstraction
+---
+
+# DA-20260422-code-quality-simplify-trigger
+
+## Signal-to-Action
+
+기능 구현 완료 후 변경 파일 수가 5 개를 초과하면 `simplify` 를 실행한다. 3 서브에이전트가 재사용성·품질·효율성 관점에서 병렬 정리한다.
+
+## 적용 사례 (retrospective 연계)
+
+- (md-rewrite 변환 시점 — retrospective 누적 예정)

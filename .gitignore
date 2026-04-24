@@ -1,0 +1,46 @@
+# LanceDB vector index (재생성 가능)
+.lancedb/
+
+# Logs
+*.log
+
+# Backup files
+*.bak-*
+*.bak
+
+# Coverage / regression artifacts
+_coverage_baseline*
+_regression_test_*
+_rebuild.log
+
+# Runtime state / cache
+.t2-keyword-index.json
+.t2-miss.jsonl
+.mirror-state.json
+.home-cwd-warning
+.remote-session
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Node
+node_modules/
+*.tsbuildinfo
+dist/
+build/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Work-in-progress / drafts
+.draft-v2/
+.archive/
+.secretary/
+haiku-extractions/

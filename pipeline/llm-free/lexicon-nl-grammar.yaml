@@ -1,0 +1,2215 @@
+version: v1.0
+source: draft-v0.5
+normalization_applied: C:\Users\jsh86\.claude\scripts\da-vector\llm-free\normalization-rules.yaml
+stats:
+  verbs: 136
+  endings: 87
+  connectives: 108
+  total: 331
+  tier_distribution:
+    verbs_by_tier:
+      1: 34
+      2: 47
+      3: 55
+    endings_by_tier:
+      1: 7
+      2: 31
+      3: 49
+    connectives_by_tier:
+      1: 33
+      2: 38
+      3: 37
+    connective_promotions: 2
+verbs:
+- stem: 확인
+  forms:
+  - 명시적으로 확인한다
+  - 확인
+  - 확인 (최대
+  - 확인 여부
+  - 확인 필수
+  - 확인 후 Edit
+  - 확인되어야 함
+  - 확인되었을
+  - 확인됨
+  - 확인하고
+  - 확인하는
+  - 확인하다
+  - 확인한 뒤
+  - 확인한다
+  - 확인할
+  - 확인해야 한다
+  occurrences: 187
+  file_coverage: 24
+  tier: 1
+- stem: 생성
+  forms:
+  - 동시에 생성한다
+  - 생성
+  - 생성 가능
+  - 생성 금지
+  - 생성되는
+  - 생성되다
+  - 생성됨
+  - 생성하거나
+  - 생성하고
+  - 생성한다
+  - 생성해야
+  - 생성해야 한다
+  - 신규 작성
+  - 오생성되면
+  - 오생성한다
+  - 파일을 생성하거나
+  - 플래그를 생성한다
+  occurrences: 71
+  file_coverage: 9
+  tier: 1
+- stem: 검증
+  forms:
+  - 검증
+  - 검증 방법
+  - 검증 완료
+  - 검증됨
+  - 검증하는
+  - 검증하는가
+  - 검증하다
+  - 검증한다
+  - 수행 가능성 검증
+  occurrences: 68
+  file_coverage: 9
+  tier: 1
+- stem: 차단
+  forms:
+  - Edit 차단
+  - Write 차단
+  - 일괄 차단
+  - 차단
+  - 차단된다
+  - 차단됨
+  - 차단이
+  - 차단하는
+  - 차단하다
+  - 차단하지
+  - 차단한다
+  - 호출 차단
+  - 호출을 차단
+  occurrences: 53
+  file_coverage: 8
+  tier: 1
+- stem: 포함
+  forms:
+  - 모두 포함
+  - 반드시 포함한다
+  - 버전 번호가 포함된
+  - 포함
+  - 포함 권장
+  - 포함되므로
+  - 포함되어
+  - 포함되어야 한다
+  - 포함하면
+  - 포함하여
+  - 포함한다
+  - 포함해야
+  - 포함해야 한다
+  - 필수 포함
+  occurrences: 53
+  file_coverage: 10
+  tier: 1
+- stem: 실행
+  forms:
+  - 실행
+  - 실행 가능
+  - 실행 실패
+  - 실행됨
+  - 실행만
+  - 실행하기
+  - 실행하기 직전
+  - 실행하는
+  - 실행하다
+  - 실행한다
+  - 실행할
+  - 실행해야 할 때
+  occurrences: 50
+  file_coverage: 7
+  tier: 1
+- stem: 기록
+  forms:
+  - 기록
+  - 기록되어 있으면
+  - 기록되어야
+  - 기록됨
+  - 기록하는
+  - 기록한다
+  - 기록해야 한다
+  - 즉시 기록
+  - 해당 내용을 기록한다
+  occurrences: 46
+  file_coverage: 8
+  tier: 1
+- stem: 저장
+  forms:
+  - 저장
+  - 저장 완료
+  - 저장 위치
+  - 저장되어 있다
+  - 저장된다
+  - 저장하는
+  - 저장하면
+  - 저장한다
+  - 저장해야 한다
+  - 저장해줘
+  occurrences: 41
+  file_coverage: 6
+  tier: 1
+- stem: 갱신
+  forms:
+  - 갱신
+  - 갱신 필수
+  - 갱신되어
+  - 갱신됨
+  - 갱신하는
+  - 갱신하다
+  - 갱신한다
+  - 동기 갱신
+  - 동시 갱신
+  occurrences: 39
+  file_coverage: 9
+  tier: 1
+- stem: 발동
+  forms:
+  - 발동
+  - 발동되다
+  - 발동됨
+  - 발동하다
+  - 발동하면
+  - 발동하지
+  - 발동하지 않는다
+  - 발동한다
+  occurrences: 37
+  file_coverage: 6
+  tier: 1
+- stem: 판정
+  forms:
+  - 판정
+  - 판정 가능
+  - 판정 경계
+  - 판정 불가
+  - 판정됨
+  - 판정하는
+  - 판정한다
+  occurrences: 37
+  file_coverage: 5
+  tier: 1
+- stem: 작성
+  forms:
+  - 신규 검증 스크립트 도출 시
+  - 신규 운영/가드 문서 작성 시
+  - 작성
+  - 작성하거나
+  - 작성하고
+  - 작성한다
+  - 작성할
+  - 작성해야 한다
+  - 즉시 번호 매긴 평문 선택지를 작성
+  occurrences: 35
+  file_coverage: 8
+  tier: 1
+- stem: 수행
+  forms:
+  - 수행
+  - 수행됨
+  - 수행하는
+  - 수행하는가
+  - 수행하다
+  - 수행한다
+  - 수행할
+  occurrences: 34
+  file_coverage: 7
+  tier: 1
+- stem: 추가
+  forms:
+  - 이 인덱스에 절대경로 포인터를 추가
+  - 추가
+  - 추가 Edit
+  - 추가 시
+  - 추가(Write)하십시오
+  - 추가됨
+  - 추가하다
+  - 추가하면
+  - 추가한다
+  - 포인터를 추가
+  occurrences: 34
+  file_coverage: 7
+  tier: 1
+- stem: 감지
+  forms:
+  - 감지
+  - 감지 시
+  - 감지됐음에도
+  - 감지됨
+  - 감지하는
+  - 감지하다
+  - 감지한 상태
+  - 감지한다
+  - 자동 감지
+  occurrences: 29
+  file_coverage: 8
+  tier: 1
+- stem: 금지
+  forms:
+  - 금지
+  - 금지 —
+  - 금지하고
+  - 금지한다
+  - 절대 호출하지 않는다
+  - 즉시 금지
+  - 즉시 금지한다
+  occurrences: 25
+  file_coverage: 4
+  tier: 1
+- stem: 사용
+  forms:
+  - 사용하고
+  - 사용하는
+  - 사용하려는 도구
+  - 사용하지 않는다
+  - 사용한다
+  - 사용할 때
+  - 사용해야 할 때
+  occurrences: 25
+  file_coverage: 3
+  tier: 1
+- stem: 발생
+  forms:
+  - 발생 시
+  - 발생되면
+  - 발생하면
+  - 발생한다
+  - 발생할 수 있다
+  - 발생했는지
+  - 발생했을 때
+  occurrences: 24
+  file_coverage: 3
+  tier: 1
+- stem: 수정
+  forms:
+  - 수정
+  - 수정/삭제
+  - 수정하는
+  - 수정하다
+  - 수정하면
+  - 수정한
+  - 수정한다
+  - 수정할
+  - 수정할 때
+  - 수정해야
+  occurrences: 24
+  file_coverage: 6
+  tier: 1
+- stem: 분류
+  forms:
+  - 분류
+  - 분류 체크리스트
+  - 분류·등록
+  - 분류됨
+  - 분류하고
+  - 분류한다
+  occurrences: 22
+  file_coverage: 5
+  tier: 1
+- stem: 전환
+  forms:
+  - 전환
+  - 전환 시
+  - 전환 포인터
+  - 전환 필요
+  - 전환됨
+  - 전환한다
+  occurrences: 20
+  file_coverage: 2
+  tier: 1
+- stem: 경유
+  forms:
+  - 경유
+  - 경유 필수
+  - 경유만 허용
+  - 경유한다
+  - 경유해야 한다
+  occurrences: 16
+  file_coverage: 2
+  tier: 1
+- stem: 등록
+  forms:
+  - 등록 확인
+  - 등록되다
+  - 등록되어 있는지
+  - 등록됨
+  - 등록하다
+  - 등록한다
+  occurrences: 16
+  file_coverage: 3
+  tier: 1
+- stem: 이행
+  forms:
+  - 이행 행동
+  - 이행률
+  - 이행한다
+  occurrences: 15
+  file_coverage: 2
+  tier: 1
+- stem: 호출
+  forms:
+  - 호출
+  - 호출 금지
+  - 호출 시
+  - 호출을 즉시 금지
+  - 호출하다
+  - 호출하면
+  - 호출하지 않는다
+  - 호출한다
+  occurrences: 15
+  file_coverage: 3
+  tier: 1
+- stem: 강제
+  forms:
+  - read-only 속성을 강제
+  - 강제됨
+  - 강제하는
+  - 강제한다
+  - 필수 강제
+  occurrences: 14
+  file_coverage: 2
+  tier: 1
+- stem: 조치
+  forms:
+  - 조치
+  - 조치됨
+  - 조치한다
+  - 즉시 조치
+  occurrences: 14
+  file_coverage: 2
+  tier: 1
+- stem: 판단
+  forms:
+  - 판단
+  - 판단됨
+  - 판단한다
+  occurrences: 14
+  file_coverage: 2
+  tier: 1
+- stem: 허용
+  forms:
+  - 영어 허용
+  - 자유 형식 허용
+  - 허용 불가
+  - 허용된다
+  - 허용됨
+  - 허용한다
+  occurrences: 14
+  file_coverage: 3
+  tier: 1
+- stem: 분기
+  forms:
+  - 분기 처리
+  - 분기됨
+  - 분기한다
+  - 저장 위치를 분기
+  occurrences: 13
+  file_coverage: 2
+  tier: 1
+- stem: 삭제
+  forms:
+  - 삭제
+  - 삭제 금지
+  - 삭제되다
+  - 삭제됨
+  - 삭제하는
+  - 삭제한다
+  occurrences: 13
+  file_coverage: 3
+  tier: 1
+- stem: 측정
+  forms:
+  - 측정
+  - 측정됨
+  - 측정하는
+  - 측정한다
+  occurrences: 13
+  file_coverage: 3
+  tier: 1
+- stem: 승격
+  forms:
+  - 승격 판단
+  - 승격됨
+  - 승격한다
+  occurrences: 12
+  file_coverage: 1
+  tier: 1
+- stem: 유지
+  forms:
+  - 유지 여부
+  - 유지되어야 한다
+  - 유지된다
+  - 유지됨
+  - 유지한다
+  occurrences: 12
+  file_coverage: 2
+  tier: 1
+- stem: 적용
+  forms:
+  - 적용
+  - 적용 대상
+  - 적용되지 않는다
+  - 적용하다
+  - 적용한다
+  - 적용할
+  occurrences: 12
+  file_coverage: 4
+  tier: 2
+- stem: 처리
+  forms:
+  - 처리
+  - 처리하고
+  - 처리하는
+  - 처리하다
+  - 처리한다
+  occurrences: 12
+  file_coverage: 2
+  tier: 2
+- stem: 반영
+  forms:
+  - 반영
+  - 반영 완료
+  - 반영되었는지
+  - 반영됨
+  - 반영하는
+  - 반영하여
+  occurrences: 11
+  file_coverage: 2
+  tier: 2
+- stem: 비교
+  forms:
+  - 비교
+  - 비교하는
+  - 비교한다
+  - 줄 수 비교 보고
+  occurrences: 11
+  file_coverage: 4
+  tier: 2
+- stem: 정리
+  forms:
+  - 정리
+  - 정리됨
+  - 정리하는
+  - 정리한다
+  occurrences: 10
+  file_coverage: 2
+  tier: 2
+- stem: 누락
+  forms:
+  - 누락 시
+  - 누락된다
+  - 누락하면
+  occurrences: 9
+  file_coverage: 1
+  tier: 2
+- stem: 보완
+  forms:
+  - 보완
+  - 보완 후
+  - 보완이
+  - 보완한다
+  - 자가 보완
+  - 자가 보완 후 진입
+  occurrences: 9
+  file_coverage: 2
+  tier: 2
+- stem: 재실행
+  forms:
+  - 재실행한다
+  - 재실행해
+  - 재실행해야 한다
+  occurrences: 9
+  file_coverage: 1
+  tier: 2
+- stem: 감사
+  forms:
+  - 감사
+  - 감사하다
+  occurrences: 8
+  file_coverage: 1
+  tier: 2
+- stem: 개선
+  forms:
+  - 개선
+  - 개선하는
+  - 개선하는 설계
+  - 개선한다
+  occurrences: 8
+  file_coverage: 1
+  tier: 2
+- stem: 동기화
+  forms:
+  - 동기화
+  - 동기화 누락
+  - 동기화가 완성된다
+  - 동기화된다
+  - 동기화해야
+  occurrences: 8
+  file_coverage: 2
+  tier: 2
+- stem: 무효화
+  forms:
+  - 무효화 + 오염
+  - 무효화 위험
+  - 무효화된다
+  occurrences: 8
+  file_coverage: 1
+  tier: 2
+- stem: 분리
+  forms:
+  - 분리
+  - 분리 필요
+  - 분리한다
+  occurrences: 8
+  file_coverage: 2
+  tier: 2
+- stem: 식별
+  forms:
+  - 식별
+  - 식별됨
+  - 식별하는
+  - 식별한다
+  occurrences: 8
+  file_coverage: 2
+  tier: 2
+- stem: 점검
+  forms:
+  - 점검하며
+  - 점검한다
+  occurrences: 8
+  file_coverage: 1
+  tier: 2
+- stem: 제거
+  forms:
+  - 제거
+  - 제거·우회하면
+  - 제거되면
+  - 제거하면
+  occurrences: 8
+  file_coverage: 2
+  tier: 2
+- stem: 주입
+  forms:
+  - 주입됨
+  - 주입한다
+  occurrences: 8
+  file_coverage: 1
+  tier: 2
+- stem: 통과
+  forms:
+  - 통과
+  - 통과 (cwd가
+  - 통과하다
+  - 통과한다
+  occurrences: 8
+  file_coverage: 2
+  tier: 2
+- stem: 도달
+  forms:
+  - 도달됨
+  - 도달하는가
+  occurrences: 7
+  file_coverage: 1
+  tier: 2
+- stem: 분석
+  forms:
+  - 분석
+  - 분석하는
+  - 분석한다
+  - 분석할 때
+  occurrences: 7
+  file_coverage: 2
+  tier: 2
+- stem: 손상
+  forms:
+  - 손상 위험
+  - 손상되어
+  - 손상된다
+  occurrences: 7
+  file_coverage: 1
+  tier: 2
+- stem: 의존
+  forms:
+  - 기억 의존 추정은 금지
+  - 의존하면
+  - 의존하지 않는다
+  occurrences: 7
+  file_coverage: 1
+  tier: 2
+- stem: 추적
+  forms:
+  - 추적
+  - 추적하는
+  - 추적한다
+  occurrences: 7
+  file_coverage: 2
+  tier: 2
+- stem: 탐색
+  forms:
+  - 동적 탐색
+  - 재탐색해야 한다
+  - 탐색한다
+  occurrences: 7
+  file_coverage: 1
+  tier: 2
+- stem: 격리
+  forms:
+  - 격리
+  - 격리를 보장하는
+  - 격리하는
+  - 격리한다
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 대조
+  forms:
+  - 대조 쿼리
+  - 대조하면
+  - 대조하여
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 보고
+  forms:
+  - 보고하면 안 된다
+  - 보고한다
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 샘플링
+  forms:
+  - 샘플링
+  - 샘플링하여
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 요청
+  forms:
+  - 사용자에게 요청
+  - 요청한다
+  - 중복 요청
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 위임
+  forms:
+  - 위임
+  - 위임 여부
+  - 위임하다
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 이관
+  forms:
+  - 이관됨
+  - 이관한다
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 조회
+  forms:
+  - 먼저 조회
+  - 조회한다
+  - 조회해야 한다
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 진입
+  forms:
+  - Bash 호출로 진입
+  - 진입 게이트
+  - 진입하는
+  - 진입한다
+  occurrences: 6
+  file_coverage: 2
+  tier: 2
+- stem: 필요
+  forms:
+  - 필요
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- stem: 관리
+  forms:
+  - 관리되는
+  - 관리됨
+  - 관리한다
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 누적
+  forms:
+  - 누적됨
+  - 누적한다
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 명시
+  forms:
+  - 명시적으로
+  - 명시한다
+  - 명시해야 한다
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 미루다
+  forms:
+  - 다음 턴으로 미루지 않는다
+  - 미루지 않는다
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 발견
+  forms:
+  - 발견
+  - 발견 시
+  - 발견하고
+  - 발견하는
+  occurrences: 5
+  file_coverage: 2
+  tier: 2
+- stem: 변경
+  forms:
+  - 변경
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 복귀
+  forms:
+  - 복귀
+  - 복귀 시
+  - 복귀한다
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 삽입
+  forms:
+  - prepend
+  - 삽입한다
+  - 상단에 삽입
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 수집
+  forms:
+  - 수집 가능
+  - 수집한다
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 위반
+  forms:
+  - 규칙 위반
+  - 위반으로
+  - 위반이다
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 이동
+  forms:
+  - 이동
+  - 이동하면
+  - 이동한다
+  occurrences: 5
+  file_coverage: 3
+  tier: 2
+- stem: 제시
+  forms:
+  - 제시한다
+  - 직접 출력한다
+  - 텍스트로 제시
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 존재
+  forms:
+  - 존재
+  - 존재하면
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- stem: 초과
+  forms:
+  - 초과 시
+  - 초과됨
+  occurrences: 5
+  file_coverage: 1
+  tier: 3
+- stem: 탐지
+  forms:
+  - 탐지됨
+  - 탐지한다
+  occurrences: 5
+  file_coverage: 1
+  tier: 3
+- stem: 폐기
+  forms:
+  - 폐기 사유
+  - 폐기된 파일
+  - 폐기됨
+  occurrences: 5
+  file_coverage: 1
+  tier: 3
+- stem: 표시
+  forms:
+  - 노출되어
+  - 제목으로 표시
+  - 표시한다
+  occurrences: 5
+  file_coverage: 1
+  tier: 3
+- stem: 검토
+  forms:
+  - 검토
+  - 검토하는
+  - 검토한다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 결정
+  forms:
+  - 결정
+  - 결정한다
+  occurrences: 4
+  file_coverage: 2
+  tier: 3
+- stem: 구현
+  forms:
+  - 구현
+  - 구현하다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 기입
+  forms:
+  - 기입
+  - 기입하는
+  - 기입한다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 노출
+  forms:
+  - 노출되지 않도록
+  - 노출된다
+  - 노출시키는 행위
+  - 코드에 노출
+  occurrences: 4
+  file_coverage: 2
+  tier: 3
+- stem: 롤백
+  forms:
+  - 롤백
+  - 롤백 절차
+  - 롤백한다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 방어
+  forms:
+  - 방어
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 방지
+  forms:
+  - 방지
+  - 방지 목적
+  - 방지책
+  - 방지하는
+  - 방지한다
+  occurrences: 4
+  file_coverage: 2
+  tier: 3
+- stem: 보정
+  forms:
+  - 보정 불가
+  - 보정한다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 선택
+  forms:
+  - 선택
+  - 선택 기준
+  - 선택하다
+  - 선택한다
+  occurrences: 4
+  file_coverage: 2
+  tier: 3
+- stem: 선행
+  forms:
+  - 선행 필요
+  - 선행한다
+  - 질문을 선행한 뒤
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 설치
+  forms:
+  - 설치
+  - 설치된
+  - 설치해야
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 완결
+  forms:
+  - 같은 턴에 완결
+  - 완결한다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 전송
+  forms:
+  - 전송
+  - 전송 →
+  - 전송한다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 정의
+  forms:
+  - 정의
+  - 정의하는
+  - 정의한다
+  occurrences: 4
+  file_coverage: 2
+  tier: 3
+- stem: 증가
+  forms:
+  - 증가
+  - 증가시킨다
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- stem: 대기
+  forms:
+  - 대기
+  - 대기한다
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 대체
+  forms:
+  - superseded
+  - 새 버전으로 대체
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 리셋
+  forms:
+  - 리셋 효과
+  - 리셋됨
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 문의
+  forms:
+  - 사용자에게 문의한다
+  - 없을 때만 문의한다
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 배포
+  forms:
+  - 배포
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 보호
+  forms:
+  - 보호
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 분산
+  forms:
+  - 분산되어 있다
+  - 분산되어 있으며
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 빌드
+  forms:
+  - 빌드
+  - 빌드 포함
+  - 빌드+배포
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 설계
+  forms:
+  - 설계하다
+  - 설계할 때
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 수립
+  forms:
+  - 계획을 수립
+  - 수립해야 할 때
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 추정
+  forms:
+  - 추정됨
+  - 추정한다
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 출력
+  forms:
+  - 직접 출력한다
+  - 채팅창에 직접 출력
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 해결
+  forms:
+  - 해결
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- stem: 감시
+  forms:
+  - 감시
+  - 감시하다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 검사
+  forms:
+  - 검사하여
+  - 검사한다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 계산
+  forms:
+  - 계산
+  - 계산하다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 기다리다
+  forms:
+  - 사용자 답변을 기다린다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 덮어쓰기
+  forms:
+  - 덮어쓰기
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 도출
+  forms:
+  - 도출
+  - 도출하는
+  - 도출한다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 명문화
+  forms:
+  - plan.md 에 명문화
+  - 명문화한다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 배제
+  forms:
+  - 배제
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 보존
+  forms:
+  - 참고용 보존
+  occurrences: 2
+  file_coverage: 2
+  tier: 3
+- stem: 복구
+  forms:
+  - 복구
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 선정
+  forms:
+  - 선정
+  - 선택
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 설정
+  forms:
+  - 설정
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 수색
+  forms:
+  - 먼저 수색
+  - 수색해야 합니다
+  occurrences: 2
+  file_coverage: 2
+  tier: 3
+- stem: 안내
+  forms:
+  - 대화 프로토콜 안내
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 열람
+  forms:
+  - 먼저 열람
+  - 열람 의무
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 의심
+  forms:
+  - 의심시
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 읽기
+  forms:
+  - 읽기
+  - 읽어
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 자동화
+  forms:
+  - 자동화
+  - 자동화하다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 제한
+  forms:
+  - 제한
+  - 제한 —
+  - 제한한다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 준수
+  forms:
+  - 반드시 준수해야 한다
+  - 준수해야
+  occurrences: 2
+  file_coverage: 2
+  tier: 3
+- stem: 참조
+  forms:
+  - 참조
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- stem: 판별
+  forms:
+  - 수행 가능한지 판별
+  - 판별한다
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+endings:
+- text: -한다
+  modality: neutral
+  occurrences: 453
+  file_coverage: 16
+  tier: 1
+- text: -해야 한다
+  modality: must
+  occurrences: 229
+  file_coverage: 24
+  tier: 1
+- text: -이다
+  modality: neutral
+  occurrences: 227
+  file_coverage: 18
+  tier: 1
+- text: -됨
+  modality: neutral
+  occurrences: 50
+  file_coverage: 4
+  tier: 1
+- text: 반드시
+  modality: must
+  occurrences: 37
+  file_coverage: 5
+  tier: 1
+- text: -금지
+  modality: must-not
+  occurrences: 33
+  file_coverage: 3
+  tier: 1
+- text: -불가
+  modality: must-not
+  occurrences: 1
+  file_coverage: 1
+  tier: 3
+  note: "incident-driven 추가 (2026-04-22, pc-tools.md rule-check)"
+- text: '- [ ]'
+  modality: neutral
+  occurrences: 32
+  file_coverage: 2
+  tier: 1
+- text: -반드시 ~한다
+  modality: must
+  occurrences: 22
+  file_coverage: 1
+  tier: 2
+- text: -하면 안 된다
+  modality: must-not
+  occurrences: 22
+  file_coverage: 5
+  tier: 2
+- text: -하는가?
+  modality: neutral
+  occurrences: 20
+  file_coverage: 1
+  tier: 2
+- text: -필수
+  modality: must
+  occurrences: 19
+  file_coverage: 2
+  tier: 2
+- text: -가능
+  modality: may
+  occurrences: 18
+  file_coverage: 3
+  tier: 2
+- text: -(이)므로
+  modality: neutral
+  occurrences: 14
+  file_coverage: 1
+  tier: 2
+- text: -면
+  modality: neutral
+  occurrences: 14
+  file_coverage: 2
+  tier: 2
+- text: -을 금지한다
+  modality: must-not
+  occurrences: 14
+  file_coverage: 2
+  tier: 2
+- text: -(으)면 안 된다
+  modality: must-not
+  occurrences: 12
+  file_coverage: 2
+  tier: 2
+- text: -(이)다
+  modality: neutral
+  occurrences: 12
+  file_coverage: 1
+  tier: 2
+- text: -않는다
+  modality: must-not
+  occurrences: 11
+  file_coverage: 1
+  tier: 2
+- text: -허용
+  modality: may
+  occurrences: 11
+  file_coverage: 1
+  tier: 2
+- text: 필수
+  modality: must
+  occurrences: 10
+  file_coverage: 3
+  tier: 2
+- text: -(으)ㄹ 수 있다
+  modality: neutral
+  occurrences: 9
+  file_coverage: 1
+  tier: 2
+- text: -(이)며
+  modality: neutral
+  occurrences: 8
+  file_coverage: 1
+  tier: 2
+- text: →
+  modality: neutral
+  occurrences: 8
+  file_coverage: 2
+  tier: 2
+- text: ⛔ 금지
+  modality: must-not
+  occurrences: 8
+  file_coverage: 3
+  tier: 2
+- text: 금지
+  modality: must-not
+  occurrences: 8
+  file_coverage: 2
+  tier: 2
+- text: -되지 않는다
+  modality: neutral
+  occurrences: 7
+  file_coverage: 1
+  tier: 2
+- text: -수 있다
+  modality: may
+  occurrences: 7
+  file_coverage: 3
+  tier: 2
+- text: 가능
+  modality: may
+  occurrences: 7
+  file_coverage: 2
+  tier: 2
+- text: -를 확인한 뒤
+  modality: must
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: -이어야 한다
+  modality: must
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: -절대 ~금지
+  modality: must-not
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: -하는
+  modality: neutral
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: ⛔ ~ 금지
+  modality: must-not
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: 자동 ~
+  modality: neutral
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: 즉시 ~
+  modality: must
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: -권장
+  modality: should
+  occurrences: 5
+  file_coverage: 2
+  tier: 2
+- text: -만 허용된다
+  modality: must
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: -하지 않는다
+  modality: must-not
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: ⛔
+  modality: must-not
+  occurrences: 5
+  file_coverage: 2
+  tier: 3
+- text: '기대:'
+  modality: neutral
+  occurrences: 5
+  file_coverage: 1
+  tier: 3
+- text: 기본값
+  modality: should
+  occurrences: 5
+  file_coverage: 1
+  tier: 3
+- text: 먼저 ~
+  modality: must
+  occurrences: 5
+  file_coverage: 1
+  tier: 3
+- text: -(으)ㄹ 수 없다
+  modality: neutral
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -는 허용된다
+  modality: may
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -를 먼저 Read 한다
+  modality: must
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -수정 시
+  modality: neutral
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -수행한다
+  modality: neutral
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -아님
+  modality: must-not
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -인지 확인
+  modality: must
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -필요하다
+  modality: should
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -필요한 신호
+  modality: should
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -하는지
+  modality: neutral
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -하면 즉시
+  modality: must
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: '| 조건'
+  modality: neutral
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: → deny
+  modality: must-not
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: 절대 ~
+  modality: must-not
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: 폐기
+  modality: must-not
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: 허용
+  modality: may
+  occurrences: 4
+  file_coverage: 1
+  tier: 3
+- text: -경유 필수
+  modality: must
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: -면 규칙 위반이다
+  modality: must-not
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: -없음
+  modality: neutral
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: -은 허용된다
+  modality: may
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: -하는 행위
+  modality: neutral
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: -하면 실패한다
+  modality: neutral
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: -하지 말고
+  modality: must-not
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 가능하면 ~
+  modality: should
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 기본 ~
+  modality: should
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 단일 SSOT
+  modality: must
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 반자동 ~
+  modality: neutral
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 제외
+  modality: must-not
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: -(해당 시)
+  modality: may
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -되지 않음
+  modality: must-not
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -만
+  modality: must
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -야만 {X}가 완성된다
+  modality: must
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -완료
+  modality: neutral
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -이상
+  modality: neutral
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -이하
+  modality: must
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -있음
+  modality: neutral
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -정상 사용
+  modality: may
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -하십시오
+  modality: must
+  occurrences: 2
+  file_coverage: 2
+  tier: 3
+- text: -하지 않는지
+  modality: neutral
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -할 것
+  modality: should
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -할 수 있다
+  modality: may
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: -항상 전진
+  modality: must
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: → 통과
+  modality: neutral
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 권장
+  modality: should
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 적절하면 ~
+  modality: should
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+connectives:
+- text: ~이면
+  da_field: if
+  occurrences: 89
+  file_coverage: 7
+  tier: 1
+- text: ~할 때
+  da_field: when
+  occurrences: 82
+  file_coverage: 12
+  tier: 1
+- text: 반드시 {X}한다
+  da_field: then
+  occurrences: 46
+  file_coverage: 4
+  tier: 1
+- text: ~에서
+  da_field: when
+  occurrences: 42
+  file_coverage: 4
+  tier: 1
+- text: ~이므로
+  da_field: because
+  occurrences: 37
+  file_coverage: 6
+  tier: 1
+- text: ~해야 한다
+  da_field: then
+  occurrences: 35
+  file_coverage: 3
+  tier: 1
+- text: →
+  da_field: then
+  occurrences: 34
+  file_coverage: 6
+  tier: 1
+- text: 시
+  da_field: when
+  occurrences: 25
+  file_coverage: 7
+  tier: 1
+- text: ~면
+  da_field: if
+  occurrences: 18
+  file_coverage: 1
+  tier: 1
+- text: ~하면
+  da_field: if
+  occurrences: 18
+  file_coverage: 1
+  tier: 1
+- text: 또는
+  da_field: neutral
+  occurrences: 17
+  file_coverage: 5
+  tier: 1
+- text: 조건
+  da_field: if
+  occurrences: 15
+  file_coverage: 4
+  tier: 1
+- text: 단, ~
+  da_field: counter-example
+  occurrences: 13
+  file_coverage: 3
+  tier: 1
+- text: '{X}한 경우'
+  da_field: if
+  occurrences: 12
+  file_coverage: 1
+  tier: 1
+- text: ~인 경우
+  da_field: if
+  occurrences: 12
+  file_coverage: 2
+  tier: 1
+- text: ~제외
+  da_field: counter-example
+  occurrences: 12
+  file_coverage: 3
+  tier: 1
+- text: ~하려는 경우
+  da_field: if
+  occurrences: 12
+  file_coverage: 1
+  tier: 1
+- text: ~있으면
+  da_field: if
+  occurrences: 11
+  file_coverage: 2
+  tier: 1
+- text: '{X}이므로 {Y}'
+  da_field: because
+  occurrences: 10
+  file_coverage: 1
+  tier: 1
+- text: ~없으면
+  da_field: counter-example
+  occurrences: 10
+  file_coverage: 2
+  tier: 1
+- text: '{X}하면 {Y}가 발생한다'
+  da_field: anti-pattern
+  occurrences: 9
+  file_coverage: 1
+  tier: 1
+- text: 하면
+  da_field: if
+  occurrences: 9
+  file_coverage: 2
+  tier: 1
+- text: '{X}하려 할 때'
+  da_field: when
+  occurrences: 8
+  file_coverage: 1
+  tier: 1
+- text: ~시 바로 ~하면
+  da_field: anti-pattern
+  occurrences: 8
+  file_coverage: 1
+  tier: 1
+- text: ~위험
+  da_field: because
+  occurrences: 8
+  file_coverage: 2
+  tier: 1
+- text: ~하기 전에
+  da_field: when
+  occurrences: 8
+  file_coverage: 1
+  tier: 1
+- text: 만약 {X}이면
+  da_field: if
+  occurrences: 8
+  file_coverage: 2
+  tier: 1
+- text: 없으면
+  da_field: if
+  occurrences: 8
+  file_coverage: 3
+  tier: 1
+- text: '{X}하기 직전'
+  da_field: when
+  occurrences: 7
+  file_coverage: 1
+  tier: 1
+- text: ~범위 밖
+  da_field: counter-example
+  occurrences: 7
+  file_coverage: 1
+  tier: 1
+- text: ~시나리오에서
+  da_field: when
+  occurrences: 7
+  file_coverage: 1
+  tier: 1
+- text: → 조치
+  da_field: then
+  occurrences: 7
+  file_coverage: 1
+  tier: 2
+- text: 따라서 ~
+  da_field: because
+  occurrences: 7
+  file_coverage: 2
+  tier: 2
+- text: '{X}가 아닌 경우'
+  da_field: counter-example
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: ~아님
+  da_field: counter-example
+  occurrences: 6
+  file_coverage: 2
+  tier: 2
+- text: ~하면 안 됨
+  da_field: anti-pattern
+  occurrences: 6
+  file_coverage: 1
+  tier: 1
+- text: ~해서는 안 됨
+  da_field: anti-pattern
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: → 즉시
+  da_field: then
+  occurrences: 6
+  file_coverage: 1
+  tier: 2
+- text: 다음 라운드에서
+  da_field: when
+  occurrences: 6
+  file_coverage: 2
+  tier: 2
+- text: 대신
+  da_field: anti-pattern
+  occurrences: 6
+  file_coverage: 3
+  tier: 2
+- text: 직접 ~ 금지
+  da_field: anti-pattern
+  occurrences: 6
+  file_coverage: 2
+  tier: 2
+- text: -이므로
+  da_field: because
+  occurrences: 5
+  file_coverage: 2
+  tier: 2
+- text: -할 때
+  da_field: when
+  occurrences: 5
+  file_coverage: 2
+  tier: 2
+- text: '{X}없이 {Y}하면'
+  da_field: anti-pattern
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: ~마다
+  da_field: when
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: ~위반
+  da_field: anti-pattern
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: ~위해
+  da_field: because
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: ~으로 인해
+  da_field: because
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: ~직전
+  da_field: when
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: ~후
+  da_field: when
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: 결과적으로 {X}
+  da_field: because
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: '기대:'
+  da_field: then
+  occurrences: 5
+  file_coverage: 1
+  tier: 2
+- text: -으로 대체
+  da_field: then
+  occurrences: 4
+  file_coverage: 2
+  tier: 2
+- text: ~도달 시
+  da_field: if
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: ~만
+  da_field: counter-example
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: ~방지
+  da_field: because
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: ~없을 때
+  da_field: when
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: ~이 발생한다
+  da_field: because
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: ~있을 때
+  da_field: when
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: ~필요하면
+  da_field: if
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: ~한다 → Yes
+  da_field: then
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: 미달 시
+  da_field: if
+  occurrences: 4
+  file_coverage: 2
+  tier: 2
+- text: 없으므로
+  da_field: because
+  occurrences: 4
+  file_coverage: 2
+  tier: 2
+- text: 왜냐하면
+  da_field: because
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: 있으면
+  da_field: if
+  occurrences: 4
+  file_coverage: 1
+  tier: 2
+- text: '{X} 키워드가 포함되거나'
+  da_field: if
+  occurrences: 3
+  file_coverage: 1
+  tier: 2
+- text: '{X} 후 완료 보고 → {Y} 누락으로'
+  da_field: anti-pattern
+  occurrences: 3
+  file_coverage: 1
+  tier: 2
+- text: '{X}에만 저장하면 {Y}가 불가능하다'
+  da_field: because
+  occurrences: 3
+  file_coverage: 1
+  tier: 2
+- text: '{X}인지 확인한다'
+  da_field: then
+  occurrences: 3
+  file_coverage: 1
+  tier: 2
+- text: ~불필요
+  da_field: counter-example
+  occurrences: 3
+  file_coverage: 1
+  tier: 2
+- text: ~에서만
+  da_field: counter-example
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: ~하면 ~발생하므로
+  da_field: because
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: ~효과
+  da_field: because
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: → nudge fire
+  da_field: then
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 그리고
+  da_field: neutral
+  occurrences: 3
+  file_coverage: 1
+  tier: 1
+- text: 아닌 경우
+  da_field: counter-example
+  occurrences: 3
+  file_coverage: 2
+  tier: 3
+- text: '예외: ~'
+  da_field: counter-example
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 으로 대체
+  da_field: then
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 이 상세 없이 {X}하면 {Y}가 발생한다
+  da_field: because
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 이 중 하나라도 ~
+  da_field: if
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 이면
+  da_field: if
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 임의로 ~하는 것은 금지
+  da_field: anti-pattern
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 있고
+  da_field: when
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 있을 때
+  da_field: when
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 특정 도구를 실제로 실행하기 직전
+  da_field: when
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: 후
+  da_field: when
+  occurrences: 3
+  file_coverage: 1
+  tier: 3
+- text: '{X} 키워드가 없는 경우'
+  da_field: counter-example
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: '{X}가 필요하고 {Y}하려는 상황'
+  da_field: if
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: '{X}로는 {Y}에 필요한 정보가 부족한 경우'
+  da_field: if
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: '{X}만 확인하고 바로 Bash 실행 → {Y} 모름'
+  da_field: anti-pattern
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: '{X}만이 목적이면 본 규칙은 비적용'
+  da_field: counter-example
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: ~계열 only
+  da_field: counter-example
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: ~그냥 호출 → Guard 차단
+  da_field: anti-pattern
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: ~라면
+  da_field: if
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: ~빈도 높음
+  da_field: counter-example
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: ~플래그 파일이 존재
+  da_field: if
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: ~플래그가 없는 ~경우
+  da_field: counter-example
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: ~할 때, 또는 ~ 직전
+  da_field: when
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 대비
+  da_field: because
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 때문이다
+  da_field: because
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 미수행
+  da_field: because
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 발견 →
+  da_field: then
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 사용자가 {X} 발화하거나
+  da_field: when
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 어느 하나라도 누락하면
+  da_field: if
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 이므로
+  da_field: because
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 차단하지 않도록
+  da_field: then
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 플래그가 존재하면
+  da_field: if
+  occurrences: 2
+  file_coverage: 1
+  tier: 3
+- text: 하드코딩하지 말고 항상 {X}로 탐색
+  da_field: then
+  occurrences: 2
+  file_coverage: 1
+  tier: 3

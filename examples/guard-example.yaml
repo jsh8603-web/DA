@@ -1,0 +1,65 @@
+---
+id: DA-20260422-code-quality-large-file-read
+kind: guard
+priority: high
+modality: must
+severity: context-loss (대형 파일 전체 Read = context 폭발)
+trigger:
+  keywords:
+    - 대형 파일
+    - 500줄
+    - large file
+    - wc -l
+    - offset
+    - limit
+    - agent output
+    - persisted output
+when: 파일을 Read 하기 직전.
+if: 파일 크기가 500 줄 이상이거나 불명확한 경우.
+then: 반드시 `wc -l` 로 크기를 먼저 확인하거나 `offset` / `limit` 파라미터로 분할 Read 한다. 500 줄 초과 파일 전체 Read 는 금지.
+because: 대형 파일 전체 Read 는 context 를 한꺼번에 소진한다. 에이전트 출력 파일 (persisted-output) 도 동일 위험이 발생한다.
+sources:
+  - canonical: ~/.claude/docs/operations/code-quality.md §code-quality-large-file-read
+    section-sha256: PLACEHOLDER_RUN_MIGRATE
+    last-verified: '2026-04-22'
+anti-pattern: 1200 줄 파일을 `Read` 로 한 번에 호출 → context 압축 임박 trigger → 작업 중단된다.
+depends-on: []
+applies-with: []
+meta-of: []
+example-queries:
+  - app.css 가 너무 큰데 Read 하기 전에 뭘 해야 해
+  - skill.md 전체 읽어도 돼?
+  - agent 출력 파일 열 때 주의사항
+  - offset / limit 언제 사용
+evidence: 승격 근거 — promotion-log E17 (app.css) + E18 (skill.md) + E23 (agent-output) 3 회 반복 관찰 후 승격.
+version: 3
+status: active
+effective-from: '2026-04-22T00:00:00.000Z'
+last-verified: '2026-04-22T00:00:00.000Z'
+utility: 0.7
+hit-count: 0
+auto-keywords:
+  - file
+  - read
+  - large
+  - code
+  - quality
+  - context
+  - wc
+  - count
+  - split
+  - persisted
+  - output
+  - agent
+  - css
+---
+
+# DA-20260422-code-quality-large-file-read
+
+## Signal-to-Action
+
+Read 전에 파일 크기를 확인하고, 500 줄 이상이면 `offset` / `limit` 분할 Read 를 사용한다. 에이전트 출력 파일도 동일 적용.
+
+## 적용 사례 (retrospective 연계)
+
+- (md-rewrite 변환 시점 — retrospective 누적 예정)

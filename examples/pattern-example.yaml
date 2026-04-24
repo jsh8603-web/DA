@@ -1,0 +1,73 @@
+---
+id: DA-20260422-ctx-warn-long-mode
+kind: pattern
+priority: medium
+modality: must
+severity: ux-degrade (long-mode 미사용 시 opus 장기 작업에서 조기 compact 연발 → 작업 단절)
+trigger:
+  keywords:
+    - long-mode
+    - 압축 조정
+    - 컨텍스트 확장
+    - ctx-warn-long-mode
+    - opus ctx
+    - warn cap
+    - 500k
+    - long mode
+when: opus 세션에서 장기 task 수행 중 ctx-warn warn/critical 이 빈번히 발동하여 agent 가 조기 마무리 모드로 진입하는 경우.
+if: 현재 세션이 opus 모델이고 long-mode override 가 필요한 경우 (sonnet/haiku 세션이면 NOOP).
+then: '`bash ~/.claude/scripts/ctx-warn-long-mode.sh on` 으로 활성화한다. 비활성화는 `off`, 현재 상태 확인은 `status` 이다.'
+because: opus 세션은 실제 1M window 지만 context rot 우려로 기본 cap 을 낮게 설정한다. 장기 task 에서 warn/critical 연발로 agent 가 조기 마무리 모드로 진입하는 것을 방지하는 세션 한정 오버라이드이다. sonnet/haiku 는 (a) helper 의 registry 체크로 flag 생성 자체 차단 (b) `ctx-warn-post-tool.js` 의 override 분기도 `isOpus` 조건 → 수동 생성 flag 도 무시한다.
+sources:
+  - canonical: ~/.claude/docs/operations/hook-guard-review.md §ctx-warn-long-mode
+    section-sha256: PLACEHOLDER_RUN_MIGRATE
+    last-verified: '2026-04-22'
+counter-example: sonnet/haiku 세션에서 long-mode 명령 실행 시 helper 가 registry 체크로 NOOP 처리한다.
+anti-pattern: long-mode flag 를 수동으로 생성하거나 삭제 → session-start-resume.sh 의 자동 복귀 로직과 충돌 가능. sonnet 세션에서 long-mode 활성화 시도 → NOOP 이지만 의도와 다른 cap 인식 가능.
+depends-on: []
+applies-with: []
+meta-of: []
+example-queries:
+  - opus 세션에서 ctx-warn 이 너무 자주 발동해
+  - long-mode 켜는 명령어
+  - 장기 작업 중 압축 방지하려면
+  - long-mode 끄면 cap 이 복원돼?
+narrative: 전역 트리거는 CLAUDE.md §Auto Triggers `압축 조정` / `컨텍스트 확장` / `long-mode` 이다.
+version: 3
+status: active
+effective-from: '2026-04-22T00:00:00.000Z'
+last-verified: '2026-04-22T00:00:00.000Z'
+utility: 0.7
+hit-count: 0
+auto-keywords:
+  - opus
+  - ctx-warn
+  - override
+  - context-window
+  - warning
+  - critical
+  - early-termination
+  - agent
+  - compression
+  - prevention
+  - long-task
+  - session-specific
+  - cap
+  - threshold
+  - ctx-warn-long-mode.sh
+  - bash
+  - script
+  - sonnet
+  - haiku
+  - model-specific
+---
+
+# DA-20260422-ctx-warn-long-mode
+
+## Signal-to-Action
+
+opus 세션 장기 작업 시 ctx-warn 연발이 예상되면 `bash ~/.claude/scripts/ctx-warn-long-mode.sh on` 으로 cap 을 500k 로 확장한다. compact/resume 시 자동 복귀되므로 다음 세션은 기본 cap 으로 원복된다.
+
+## 적용 사례 (retrospective 연계)
+
+- (md-rewrite 변환 시점 — retrospective 누적 예정)
