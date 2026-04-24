@@ -203,6 +203,13 @@ Read 이벤트만 증거로 수집 → N=3 관측 → 승격
 - 수정: `hooks/prompt/da-context.js` (E3 fallback 시 .t3-fallback-hit.jsonl append — E3 의존)
 - 신규: `hooks/tool/verifier.js` (E4 활성화 시 .verifier-missing.jsonl append — E4 의존)
 
+**구현 세부 결정** (상세: `PLAN-ultra.md §GAP 해소 결정 사항`):
+- **GAP 1** — N 차등 근거: FP 위험도 비례 (Read within=3 baseline / across=2 완화 / Verifier=3 schema-bounded / Vector=5 가장 보수적)
+- **GAP 2** — correlation token 소스: `english_kw` 필드 only. `original_korean_query` 금지 (한국어 교착어 파편화 위험 — E4 채택 사유와 동일)
+- **GAP 3** — auto-keywords 인덱싱: 별도 weighted index 불필요. `idx.keywords` 동일 슬롯에 2-pass DF≤15 필터로 통합 (L12.2 방어책 = DF 필터 자체가 generic 차단)
+- **GAP 4** — rebuild post-hook 순서: `cross-ref → build-auto-learn-promote → build-t2-keyword-index → build-index-critical` (역전 시 auto-keywords 가 index 에 미반영)
+- **GAP 7** — 교차 증거원 가중 합산: **초기 배포 OFF** (`enableCrossSourceAggregation=false`). 기본=단일 증거원별 독립 N 카운트. R1 Day 7 측정 후 편중 관측되면 flag on. 편중 80%+ warning 은 flag 무관 상시 동작
+
 **Uplift-commit**: 1 개월 누적 승격 DA ≥ 5 건. 시뮬레이션 1 일 기준 ≥ 3 건.
 
 **롤백 경로**: 각 `enableSource.*` flag off → L12.4 단일 경로 복귀 (1 줄).
@@ -368,6 +375,9 @@ missing_da_ids: 기존 DA ID 목록 중 enum 선택 (자연어 생성 없음)
 - 신규: `config/verifier-prompt.txt` (시스템 프롬프트 + schema 정의)
 - 수정: `hooks/prompt/da-context.js` (DA 주입 완료 후 verifier hook 호출)
 - 수정: settings.json (`auditor` profile 에 verifier hook 등록)
+
+**구현 세부 결정** (상세: `PLAN-ultra.md §GAP 해소 결정 사항`):
+- **GAP 5** — top-20 후보 DA 확보 경로: E3 T3 fallback 의 cosine 결과를 재활용 (전체 cosine 결과를 `t3CosineResults` 변수에 보존 → Verifier 에 top-20 ID 전달). **별도 embed 호출 금지** (비용·의존성 중복 방지). embed 서비스 down 시 `candidateDaIds=[]` → Verifier skip (`is_sufficient=true` fallback)
 
 **Uplift-commit**: JSON schema 준수율 ≥ 95% AND 승격 기여 ≥ 1 건/월.
 
@@ -863,6 +873,10 @@ ULTRA PLAN 이 본 repo clone 후 실행 순서:
 ```
 Phase 0 (Setup):
   [ ] .simulation-data/ 무결성 확인 (51 DA / 60 query / sanitize 확인)
+      → 51 DA 선정 기준 (GAP 6, 상세: PLAN-ultra.md Phase 0):
+        applies-with 링크 수 ≥ 2  AND  실제 .t2-miss.jsonl 기록 보유
+        AND  6 kind 유형 균형 (heuristic/chain/constraint/pattern/flow/enum 각 8-9 개)
+        examples/ 6 샘플만으로는 miss 재현 불충분 → 실 decisions/ 에서 sanitized 추출 필수
   [ ] pipeline/build-t2-keyword-index.ts 로 인덱스 생성
   [ ] embed_service.py 구동 (포트 8787) — T3 fallback 테스트용
 
@@ -1029,10 +1043,13 @@ Judge Verdict 의 8 건 + 추가 2 건 = 10 건. ULTRA PLAN 이 진행 중 issue
 
 ## 12. Quick Start for ULTRA PLAN Agent
 
+> **구현 플레이북**: `PLAN-ultra.md` — 본 §12 Quick Start 의 "어떻게" 전담 문서. 파일별 수정 지점·코드 스니펫·hook 실행 순서·smoke test 명령 포함. GAP 1-7 결정 사항 원문 보유. 본 plan.md 는 "왜"(전략·판정·Debate 맥락) 권위, PLAN-ultra.md 는 "어떻게"(구현 디테일) 권위. drift 발생 시 본 plan.md 가 우선.
+
 본 plan 을 읽은 agent 가 바로 실행할 수 있도록:
 
 ```
 Step 1: 본 plan.md + CLAUDE.md 전체 Read
+Step 1b: PLAN-ultra.md 전체 Read (구현 플레이북 — 파일 수정 지점 + 코드 스니펫)
 Step 2: docs/debate-verdict-2026-04-24.md 확인 (핵심 결정 배경)
 Step 3: .simulation-data/ 무결성 확인
         → 51 DA / 60 query / logs 존재 확인
@@ -1056,6 +1073,7 @@ Step 9: Future Activation Gate hook 배포 (§8)
 
 ## 참조
 
+- `PLAN-ultra.md` — 구현 플레이북 (본 plan.md §12 Quick Start 의 "어떻게" 전담, GAP 1-7 원문)
 - `docs/debate-verdict-2026-04-24.md` — Clean Room Judge 원문
 - `docs/debate-R1-steelman-2026-04-24.md` — 제안자 방어 논리
 - `docs/debate-R1-attack-2026-04-24.md` — 공격 논리 (한국어 파편화 실증 등)

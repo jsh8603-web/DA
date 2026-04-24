@@ -47,3 +47,6 @@ haiku-extractions/
 
 # ULTRA PLAN simulation data (로컬 전용, push 제외)
 .simulation-data/
+
+# MCP project-scope config (머신별)
+.mcp.json

@@ -1,5 +1,9 @@
 # ULTRA PLAN — E3→E1→E4→E6 구현 플랜
 
+> **지위**: 본 문서는 `plan.md §12 Quick Start` 의 구현 플레이북이다. 전략 판단·Debate 맥락·판정 메트릭의 권위는 `plan.md` 가 가진다. 본 문서는 "어떻게" (파일 수정 지점·코드 스니펫·실행 순서) 전용.
+> **관계**: plan.md = 전략 SSOT / PLAN-ultra.md = 구현 SSOT. 상호 참조. drift 발생 시 plan.md 가 우선.
+> **코드 상태 snapshot 기준일**: 2026-04-24. 이후 시간 경과 시 본 문서 §현재 코드 상태 테이블 재검증 필요 (라인 수·함수명 변동 가능).
+
 ## Context
 
 T2 매칭률이 80% plateau. 원인은 DA trigger.keywords 공백 (예: "grandfather" 쿼리 → file-standards-frontmatter 정답이지만 키워드 없어서 Jaccard=0).  
@@ -8,7 +12,7 @@ plan.md §12 Quick Start 기준으로 E3→E1→E4→E6 순서로 구현.
 
 ---
 
-## 현재 코드 상태 (탐색 결과)
+## 현재 코드 상태 (탐색 결과, snapshot 2026-04-24)
 
 | 파일 | 상태 | 비고 |
 |---|---|---|
@@ -172,11 +176,14 @@ const tokenDF = computeDocumentFrequency(allDAs) // token → DA 개수
 //   Verifier            = 3:  enum 출력으로 파편화 없음 → Read 신뢰도 동등
 //   Vector (T3 fallback)= 5:  false-positive 위험 최대 (임계 없이 top-2 반환) → 가장 보수적
 //
-// [GAP 7] 교차 증거원 가중 합산 허용:
-//   weight = 1 / N_threshold (증거원별 정규화). 합계 ≥ 1.0 → 승격.
+// [GAP 7] 교차 증거원 가중 합산 — **초기 배포 OFF (enableCrossSourceAggregation=false)**
+//   이유: 승격 민감도 상승 위험 (Read within 2회 + Verifier 1회 = 1.0 → 승격 즉 보수적 승격 원칙과 긴장).
+//   기본 동작: 단일 증거원별 독립 N 카운트 (GAP 1 값 사용).
+//   활성화 경로: R1 Day 7 측정 후 단일 증거원 편중 관측되면 flag on.
+//   활성 시 수식: weight = 1 / N_threshold (증거원별 정규화). 합계 ≥ 1.0 → 승격.
 //   예: Read within 1회(=1/3) + T3 1회(=1/5) + Verifier 1회(=1/3) = 0.87 → 미달
 //       Read within 2회(=2/3) + Verifier 1회(=1/3) = 1.0 → 승격
-//   단일 증거원 80% 이상 편중 시 WARNING 로그 (single-source collapse 조기 탐지)
+//   단일 증거원 80% 이상 편중 시 WARNING 로그 (single-source collapse 조기 탐지, flag 무관 상시 동작)
 ```
 
 **안전장치**:
@@ -424,7 +431,7 @@ npx tsx pipeline/build-auto-learn-promote.ts
 | GAP 4 | Phase 2 E1c (rebuild 순서) | enrich-cross-ref → **build-auto-learn-promote** → build-t2-keyword-index → build-index-critical |
 | GAP 5 | Phase 3 E4 (top-20 후보) | T3 cosine 결과 재활용. 별도 embed 호출 금지. embed down → Verifier skip |
 | GAP 6 | Phase 0 (simulation DA 선정) | 51개, 기준: applies-with≥2 + 실 miss 기록 + 6 kind 균형. `~/.claude/decisions/` sanitized |
-| GAP 7 | Phase 2 E1 (교차 증거원) | 가중 합산 허용 (weight=1/N, 합계≥1.0=승격). 단일 소스 80% 이상 편중 시 warning |
+| GAP 7 | Phase 2 E1 (교차 증거원) | **초기 배포 OFF** (`enableCrossSourceAggregation=false`). 기본=단일 증거원별 독립 N 카운트. R1 Day 7 후 편중 관측 시 flag on (가중 합산 weight=1/N, Σ≥1.0=승격). 편중 80%+ warning은 flag 무관 상시 |
 
 ---
 
