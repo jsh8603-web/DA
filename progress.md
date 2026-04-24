@@ -106,6 +106,11 @@
 
 ## Working Notes
 
+> [ckpt-202604241225:Obsidian] DA project push 완료, ultraplan-ultrareview skill DA 문법 위반 감사 중
+> - 마지막 결정: commit 285c8c4 push 완료 (plan.md + progress.md + CLAUDE.md + docs/debate-*-2026-04-24.md 7 + memory/MEMORY.md + .gitignore). promotion-log 에 K(Judge+Gemini 삼중화) + ERROR(Windows 백슬래시 sanitize Python str.replace) 2 건 prepend. 웹 agent 가 작성한 `~/.claude/skills/ultraplan-ultrareview/skill.md` 확인 결과 **DA slug heading 0 / Kind 필드 0** — DA 문법 위반으로 md-to-da 변환 불가 + guard 미발동 상태. enhanced-planning-wf/skill.md 의 phase2a DA 는 정상 (Related 에 ultraplan 스킬 포인터 ✓).
+> - 다음 의도: compact 후 ultraplan-ultrareview/skill.md 를 DA 구조 (3 DA: ultraplan-execution-paths-and-status / ultraplan-escalation-judgment / ultrareview-cost-and-severity) 로 재작성. Kind/Priority/Modality/Trigger/When/If/Then/Because 필드 보강 + 기존 표·코드블록은 Detail 로 보존.
+> - 동기화 필요: 재작성 후 `~/.claude/scripts/da-vector/structure-check.ts` 로 검증 + md-to-da.ts 재실행해 DA yaml 자동 생성 확인. 실패 시 enhanced-planning-wf/skill.md 의 DA 양식을 템플릿으로 재참조.
+
 > [ckpt-202604241212:Obsidian] Plan seed 완료, 구현 미착수
 > - 마지막 결정: D:/projects/DA 에 CLAUDE.md + plan.md + docs/debate-*-2026-04-24.md 7 개 + .simulation-data/ 전량 작성. debate verdict 6 확장 4 분류 반영.
 > - 다음 의도: 본 progress.md 생성 후 commit + push → ULTRA PLAN agent 가 Phase 0.1 부터 실행
